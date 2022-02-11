@@ -1,3 +1,6 @@
 from django.shortcuts import render
+# from .models import Post
 
-# Create your views here.
+def wholesale_form(request):
+    context = {}
+    return render(request, 'order_form/wholesale_form.html', {'context': context})
