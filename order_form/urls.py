@@ -2,5 +2,5 @@ from django.urls import include, path
 from . import views
 
 urlpatterns = [
-	# path('', views.wholesale_form, name='wholesale_form'),
+	path('', views.wholesale_form, name='wholesale_form'),
 ]
