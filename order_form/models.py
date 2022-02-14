@@ -37,7 +37,7 @@ class Product(models.Model):
         choices=QUANTITY_UNIT,
         default=''
     )
-    # image = 
+    image = models.ImageField(upload_to='images', blank=True)
     product_category = models.CharField(
         max_length=100,
         choices=PRODUCT_CATEGORIES
@@ -58,4 +58,4 @@ class Product(models.Model):
     created_date = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return (self.quantity + self.title)
+        return (self.title)

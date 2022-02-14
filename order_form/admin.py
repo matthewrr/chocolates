@@ -7,6 +7,7 @@ class ProductAdmin(admin.ModelAdmin):
         ('item_number', 'active'),
         'title',
         'description',
+        'image',
         ('price_retail', 'price_wholesale', 'quantity', 'quantity_unit'),
         ('product_category', 'chocolate_type'),
         'sugar_free',
