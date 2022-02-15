@@ -17,7 +17,7 @@ PRODUCT_CATEGORIES = [
 
 QUANTITY_UNIT = [
     ('lbs.', 'lbs.'),
-    ('pieces', 'pieces'),
+    ('pc', 'piece'),
 ]
 
 class Product(models.Model):
@@ -58,4 +58,4 @@ class Product(models.Model):
     created_date = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return (self.title)
+        return f'{self.quantity}{self.quantity_unit} {self.title}'
