@@ -33,4 +33,4 @@ def product_image_view(request):
 
 def wholesale_form(request):
     products = Product.objects.all()
-    return render(request, 'order_form/wholesale_form.html', {'products': products})
+    return render(request, 'order_form/index.html', {'products': products})

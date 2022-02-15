@@ -1,0 +1,37 @@
+{% extends 'order_form/base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- [if lte IE 9]>
+    <p class="browserupgrade">
+    You are using an <strong>outdated</strong> browser. Please
+    <a href="https://browsehappy.com/">upgrade your browser</a> to improve
+    your experience and security.
+    </p>
+<![endif] -->
+
+<!-- Preloader -->
+<div class="preloader">
+    <div class="preloader-inner">
+        <div class="preloader-icon">
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</div>
+<!-- /End Preloader -->
+
+{% include 'order_form/header.html' %}
+{% include 'order_form/hero_banners.html' %}
+{% include 'order_form/product_card.html' %}
+{% include 'order_form/call_action.html' %}
+{% include 'order_form/lower_banners.html' %}
+{% include 'order_form/shipping.html' %}
+{% include 'order_form/footer.html' %}
+
+<!-- ========================= scroll-top ========================= -->
+<a href="#" class="scroll-top">
+    <i class="lni lni-chevron-up"></i>
+</a>
+<link rel="stylesheet" href="{% static 'assets/js/main.js' %}" />
+{% endblock %}
