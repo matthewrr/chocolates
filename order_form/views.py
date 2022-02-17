@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from .models import Product
+from .models import *
 from .forms import *
 
 def image_upload_view(request):
@@ -32,5 +32,13 @@ def product_image_view(request):
 #     return HttpResponse('successfully uploaded')
 
 def wholesale_form(request):
+    items = Item.objects.all()
     products = Product.objects.all()
-    return render(request, 'order_form/index.html', {'products': products})
+    company = Company.objects.all()
+    locations = Location.objects.all()
+    context = {'items': items,
+               'products': products,
+               'company': company,
+               'locations': locations
+        }
+    return render(request, 'order_form/index.html', context)

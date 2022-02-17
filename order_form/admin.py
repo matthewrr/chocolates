@@ -3,25 +3,36 @@ from order_form.models import *
 
 class ProductAdmin(admin.ModelAdmin):
     fields = (
-        ('item_number', 'active'),
+        'item_number',
         'title',
+        'product_category',
+        ('milk_chocolate', 'dark_chocolate', 'white_chocolate', 'other', 'not_applicable'),
+        'description',
+        'active',
+        'seasonal',
+    )
+    list_display = ('title', 'product_category', 'item_number')
+
+class ItemAdmin(admin.ModelAdmin):
+    fields = (
+        'product',
+        ('item_number', 'active'),
         'description',
         'image',
         ('price', 'quantity', 'quantity_unit', 'wholesale'),
-        ('product_category', 'chocolate_type'),
+        'chocolate_type',
         'sugar_free',
         'seasonal',
     )
+    list_display = ('product', 'chocolate_type', 'quantity', 'price', 'item_number', 'sku')
 
 class CompanyAdmin(admin.ModelAdmin):
     fields = (
         'name',
         'logo',
+        'corporate_phone',
         'email_address',
     )
-    class Meta: 
-        verbose_name = "Company"
-        verbose_name_plural = "Companies"
 
 class OpeningHoursAdmin(admin.ModelAdmin):
     fields = (
@@ -33,7 +44,8 @@ class OpeningHoursAdmin(admin.ModelAdmin):
 class LocationAdmin(admin.ModelAdmin):
     fields = (
         'company',
-        ('phone_number', 'fax_number'),
+        'nickname',
+        ('location_phone', 'fax_number'),
         'hours',
         'address_1',
         'address_2',
@@ -41,7 +53,9 @@ class LocationAdmin(admin.ModelAdmin):
         'address_state',
         'address_zip',
     )
+    list_display = ('nickname','__str__', 'location_phone')
 
+admin.site.register(Item, ItemAdmin)
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Company, CompanyAdmin)
 admin.site.register(OpeningHours, OpeningHoursAdmin)
